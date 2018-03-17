@@ -1,7 +1,8 @@
 package main;
 
 import api.IOrder;
-import configuration.Config;
+import configuration.AutoConfig;
+
 import implementation.Order;
 import implementation.Pizza;
 import api.IPizza;
@@ -18,11 +19,13 @@ public class Main
         o1.addPosition(p2);
         o1.printOrder();
         */
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AutoConfig.class);
         Order o1 = (Order) context.getBean(Order.class);
         o1.printOrder();
+        /*
         Pizza p1 = (Pizza) context.getBean("DodajPizza");
         o1.addPosition(p1);
         o1.printOrder();
+        */
     }
 }

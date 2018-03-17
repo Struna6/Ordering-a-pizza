@@ -2,6 +2,7 @@ package configuration;
 
 import api.IOrder;
 import api.IPizza;
+import implementation.ExclusivePizza;
 import implementation.Order;
 import implementation.Pizza;
 import org.springframework.context.annotation.Bean;
@@ -11,15 +12,9 @@ import org.springframework.context.annotation.Configuration;
 public class Config
 {
     @Bean
-    public Pizza pizza()
+    public IPizza pizza()
     {
         return new Pizza("Margherita", 15);
-    }
-
-    @Bean
-    public Order order(Pizza pizza)
-    {
-        return new Order(pizza);
     }
 
     @Bean
@@ -27,4 +22,11 @@ public class Config
     {
         return new Pizza("Prosciutto",18);
     }
+
+    @Bean
+    public IPizza pizzaExcl()
+    {
+        return new ExclusivePizza("Specjalna", 20);
+    }
+
 }

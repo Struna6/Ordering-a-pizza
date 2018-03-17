@@ -1,7 +1,10 @@
 package implementation;
 
 import api.IPizza;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Pizza implements IPizza
 {
     private String name;
@@ -19,7 +22,7 @@ public class Pizza implements IPizza
         return name;
     }
 
-    public Pizza(String name, int price)
+    public Pizza(@Value("Zwykła") String name, @Value("15") int price)
     {
         this.name = name;
         this.price = price;
